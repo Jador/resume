@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
@@ -8,9 +9,21 @@ module.exports = {
     loaders: [
       { test: /\.js$/, exclude: /node_modules/, loader: 'babel' },
       { test: /\.html$/, loader: 'file?name=[name].[ext]' },
-      { test: /\.css$/, loader: 'style!css?modules' }
+      { test: /\.css$/, loader: 'style!css?modules&importLoaders=1!postcss' }
     ]
   },
+
+  devtool: '#source-map',
+
+  plugins: [
+    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+    }),
+    new webpack.optimize.UglifyJsPlugin()
+  ],
+
+  postcss: [ require('autoprefixer') ],
 
   output: {
     path: 'dist/',
