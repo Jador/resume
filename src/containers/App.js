@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, Route, IndexRoute, hashHistory as history } from 'react-router';
+import { Router, Route, IndexRoute, browserHistory as history } from 'react-router';
 import { h, hh } from 'react-hyperscript-helpers';
 
 import Main from './Main';
