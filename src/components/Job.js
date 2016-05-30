@@ -1,10 +1,10 @@
 import React from 'react';
-import { section, h2, div, p } from 'react-hyperscript-helpers';
+import { h, section, h2, div, p } from 'react-hyperscript-helpers';
 
-export default ({ position, start, end, location, copy = [] }) =>
-  section([
-    h2(position),
-    div(`${start} – ${end}`),
-    div(location),
-    div(copy.map(para => p(para)))
+import { Card, CardTitle, CardText } from 'material-ui/Card';
+
+export default ({ position, company, start, end, location, copy = [] }) =>
+  h(Card, [
+    h(CardTitle, { title: `${position} – ${company}`, subtitle: `${start} – ${end} | ${location}` }),
+    h(CardText, copy.map(para => p(para)))
   ])

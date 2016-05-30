@@ -1,3 +1,7 @@
 html {
   font-family: 'Roboto', 'Arial', sans-serif;
 }
+
+main {
+  display: flex;
+}

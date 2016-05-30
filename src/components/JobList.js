@@ -1,5 +1,5 @@
 import React from 'react';
-import { div } from 'react-hyperscript-helpers';
+import { div } from 'react-hyperscript-helpers'
 
 import Job from './Job';
 
