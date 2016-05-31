@@ -43,7 +43,7 @@ class Main extends React.Component {
 
     return (
       div([
-        Me(),
+        Me({ about }),
         ContactInfo({ contacts }),
         JobList({ jobs }),
         Education({ education })
