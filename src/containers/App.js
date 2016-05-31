@@ -6,6 +6,7 @@ import Main from './Main';
 import Resume from './Resume';
 import About from './About';
 import ContactInfo from '../components/ContactInfo';
+import Explain from '../components/Explain';
 
 import Theme from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
@@ -20,7 +21,8 @@ class App extends React.Component {
             h(IndexRedirect, { to: 'about' }),
             h(Route, { path: 'about', component: About }),
             h(Route, { path: 'resume', component: Resume }),
-            h(Route, { path: 'contact', component: ContactInfo })
+            h(Route, { path: 'contact', component: ContactInfo }),
+            h(Route, { path: 'explain', component: Explain })
           ])
         ])
       ])
