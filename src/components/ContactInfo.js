@@ -21,4 +21,8 @@ const Phone = (contact) => Link(contact, `tel:${contact.value}`);
 const Email = (contact) => Link(contact, `mailto:${contact.value}`, 'envelope');
 
 const Link = ({ type, value }, href, icon) =>
-  h(FlatButton, { label: value, linkButton: true, href, icon: h(FontIcon, { className: `fa fa-${icon || type}`}) });
+  h(FlatButton, {
+    label: value,
+    linkButton: true, href,
+    icon: h(FontIcon, { className: `fa fa-${icon || type}` })
+  });

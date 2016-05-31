@@ -8,7 +8,7 @@ module.exports = {
   module: {
     loaders: [
       { test: /\.js$/, exclude: /node_modules/, loader: 'babel' },
-      { test: /\.html$/, loader: 'file?name=[name].[ext]' },
+      { test: /\.html|jpeg$/, loader: 'file?name=[name].[ext]' },
       { test: /\.css$/, loader: 'style!css?modules&importLoaders=1!postcss' }
     ]
   },
