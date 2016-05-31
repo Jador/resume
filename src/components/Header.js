@@ -16,7 +16,7 @@ export default ({ toggleMenu }) =>
       h(Avatar, { src: pic, size: 80 }),
       div({ className: styles.header }, [
         div('Tyler Graham'),
-        div({ className: styles.subTitle }, 'Software Enthusiast')
+        div({ className: styles.subTitle }, 'Software Engineer')
       ])
     ],
     titleStyle: {
