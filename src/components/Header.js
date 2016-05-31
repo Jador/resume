@@ -9,6 +9,7 @@ import styles from '../styles/index.css';
 
 export default () =>
   h(AppBar, {
+    showMenuIconButton: false,
     title: [
       h(Avatar, { src: pic, size: 80 }),
       div({ className: styles.header }, [

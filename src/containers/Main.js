@@ -9,6 +9,7 @@ import Me from '../components/Me';
 import ContactInfo from '../components/ContactInfo';
 import JobList from '../components/JobList';
 import Education from '../components/EducationList';
+import Fin from '../components/Fin';
 
 class Main extends React.Component {
 
@@ -36,11 +37,15 @@ class Main extends React.Component {
       .then(res => res.json())
       .then(data => data.reverse())
       .then(education => this.setState({ education }));
+
+    api('closing')
+      .then(res => res.json())
+      .then(closing => this.setState({ closing }));
   }
 
   render() {
     const { children } = this.props;
-    const { about, jobs = [], contacts = [], education = [] } = this.state;
+    const { about, jobs = [], contacts = [], education = [], closing } = this.state;
 
     return (
       div([
@@ -48,7 +53,8 @@ class Main extends React.Component {
         Me({ about }),
         ContactInfo({ contacts }),
         JobList({ jobs }),
-        Education({ education })
+        Education({ education }),
+        Fin({ closing })
       ])
     );
 
