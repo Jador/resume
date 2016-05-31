@@ -3,13 +3,13 @@ import React from 'react';
 import FlatButton from 'material-ui/FlatButton';
 import FontIcon from 'material-ui/FontIcon';
 
-import { Card, CardTitle, CardText } from 'material-ui/Card';
+import { Card, CardTitle } from 'material-ui/Card';
 
 import { div, h } from 'react-hyperscript-helpers';
 
-export default ({ contacts }) =>
+export default ({ contacts = [] }) =>
   h(Card, { style: { marginTop: '1.5em' } }, [
-    h(CardTitle, { title: 'Drop a Line' }),
+    h(CardTitle, { title: 'Drop Me a Line' }),
     div({ style: { paddingBottom: '1em' } },
       contacts.map(contact => {
         switch (contact.type) {
