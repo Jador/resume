@@ -1,15 +1,8 @@
 import React from 'react';
 import { div } from 'react-hyperscript-helpers';
-import { api } from '../utils';
-
-import moment from 'moment';
+import * as api from '../api';
 
 import Header from '../components/Header';
-import Me from '../components/Me';
-import ContactInfo from '../components/ContactInfo';
-import JobList from '../components/JobList';
-import Education from '../components/EducationList';
-import Fin from '../components/Fin';
 
 class Main extends React.Component {
 
@@ -19,54 +12,48 @@ class Main extends React.Component {
   }
 
   componentWillMount() {
-    api('jobs')
-      .then(res => res.json())
-      .then(data => data.map(mangleDates).reverse())
-      .then(jobs => this.setState({ jobs }));
 
-    api('contactInfo')
-      .then(res => res.json())
-      .then(data => data.filter(datum => datum !== null))
-      .then(contacts => this.setState({ contacts }));
+    const { location: { pathname } } = this.props;
+    this.handleRoute(pathname, this.state);
 
-    api('about')
-      .then(res => res.json())
-      .then(about => this.setState({ about }));
+  }
 
-    api('education')
-      .then(res => res.json())
-      .then(data => data.reverse())
-      .then(education => this.setState({ education }));
+  componentWillReceiveProps(nextProps) {
 
-    api('closing')
-      .then(res => res.json())
-      .then(closing => this.setState({ closing }));
+    const { location: { pathname } } = nextProps;
+    this.handleRoute(pathname, this.state);
+
+  }
+
+  handleRoute(pathname, state) {
+    if(pathname === '/about' && !state.about) {
+      api.getAbout().then(about => this.setState({ about }));
+    } else if(pathname === '/resume' && !state.jobs) {
+      api.getJobs().then(jobs => this.setState({ jobs }));
+      api.getEducation().then(education => this.setState({ education }));
+    } else if (pathname === '/contact' && !state.contacts) {
+      api.getContactInfo().then(contacts => this.setState({ contacts }));
+    }
+  }
+
+  getStateSlice(pathname) {
+    if(pathname === '/about') return { about: this.state.about };
+    if(pathname === '/resume') return this.state; //TODO
+    if(pathname === '/contact') return { contacts: this.state.contacts };
   }
 
   render() {
-    const { children } = this.props;
-    const { about, jobs = [], contacts = [], education = [], closing } = this.state;
+    const { children, location: { pathname } } = this.props;
 
     return (
       div([
         Header(),
-        Me({ about }),
-        ContactInfo({ contacts }),
-        JobList({ jobs }),
-        Education({ education }),
-        Fin({ closing })
+        React.Children.map(children, child => React.cloneElement(child, this.getStateSlice(pathname)))
       ])
     );
 
   }
 
 }
-
-const mangleDates = job => {
-  const { start, end } = job;
-  return { ...job, start: formatDate(start), end: end ? formatDate(end) : 'Present' };
-};
-
-const formatDate = date => moment(date).format('MMM YYYY');
 
 export default Main;
