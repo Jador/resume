@@ -3,12 +3,13 @@ import { div } from 'react-hyperscript-helpers';
 import * as api from '../api';
 
 import Header from '../components/Header';
+import Menu from '../components/Menu';
 
 class Main extends React.Component {
 
   constructor(props, context) {
     super(props, context);
-    this.state = {};
+    this.state = { drawer: false };
   }
 
   componentWillMount() {
@@ -44,10 +45,13 @@ class Main extends React.Component {
 
   render() {
     const { children, location: { pathname } } = this.props;
+    const { drawer } = this.state;
+    const toggleMenu = () => this.setState({ drawer: !drawer });
 
     return (
       div([
-        Header(),
+        Header({ toggleMenu }),
+        Menu({ open: drawer, toggleMenu }),
         React.Children.map(children, child => React.cloneElement(child, this.getStateSlice(pathname)))
       ])
     );
