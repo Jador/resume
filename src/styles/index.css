@@ -2,10 +2,6 @@ html {
   font-family: 'Roboto', 'Arial', sans-serif;
 }
 
-html, body {
-  margin: 0;
-}
-
 main {
   margin: 0 auto;
   max-width: 50em;
