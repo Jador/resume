@@ -4,6 +4,7 @@ import { api } from '../utils';
 
 import moment from 'moment';
 
+import Header from '../components/Header';
 import Me from '../components/Me';
 import ContactInfo from '../components/ContactInfo';
 import JobList from '../components/JobList';
@@ -43,6 +44,7 @@ class Main extends React.Component {
 
     return (
       div([
+        Header(),
         Me({ about }),
         ContactInfo({ contacts }),
         JobList({ jobs }),
