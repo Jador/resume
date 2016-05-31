@@ -7,8 +7,10 @@ import { Card, CardTitle } from 'material-ui/Card';
 
 import { div, h } from 'react-hyperscript-helpers';
 
+import { standAlone } from '../styles/card';
+
 export default ({ contacts = [] }) =>
-  h(Card, { style: { marginTop: '1.5em' } }, [
+  h(Card, { style: standAlone }, [
     h(CardTitle, { title: 'Drop Me a Line' }),
     div({ style: { paddingBottom: '1em' } },
       contacts.map(contact => {

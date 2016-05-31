@@ -6,7 +6,7 @@ import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 
 export default hh(({ open = true, toggleMenu }) =>
-  h(Drawer, { open }, [
+  h(Drawer, { open, docked: false }, [
     h(Link, { to: '/about' }, [
       h(MenuItem, { onTouchTap: toggleMenu }, 'About Me')
     ]),

@@ -21,3 +21,12 @@ a {
 .subTitle {
   font-size: 0.7em;
 }
+
+.reading {
+  padding: 1em;
+}
+
+.book {
+  font-family: 'Libre Baskerville';
+  font-style: italic;
+}

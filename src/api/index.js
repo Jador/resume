@@ -9,9 +9,11 @@ export const getJobs = () => api('jobs').then(data => data.map(mangleDates).reve
 
 export const getEducation = () => api('education').then(data => data.reverse());
 
-export const getContactInfo = () => api('contactInfo').then(data => data.filter(datum => datum !== null))
+export const getContactInfo = () => api('contactInfo').then(data => data.filter(datum => datum !== null));
 
 export const getClosing = () => api('closing');
+
+export const getInterests = () => api('interests');
 
 const mangleDates = job => {
   const { start, end } = job;

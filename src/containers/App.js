@@ -4,7 +4,7 @@ import { h, hh } from 'react-hyperscript-helpers';
 
 import Main from './Main';
 import Resume from './Resume';
-import Me from '../components/Me';
+import About from './About';
 import ContactInfo from '../components/ContactInfo';
 
 import Theme from 'material-ui/styles/MuiThemeProvider';
@@ -18,7 +18,7 @@ class App extends React.Component {
         h(Router, { history }, [
           h(Route, { path: '/', component: Main }, [
             h(IndexRedirect, { to: 'about' }),
-            h(Route, { path: 'about', component: Me }),
+            h(Route, { path: 'about', component: About }),
             h(Route, { path: 'resume', component: Resume }),
             h(Route, { path: 'contact', component: ContactInfo })
           ])

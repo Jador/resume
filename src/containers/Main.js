@@ -29,6 +29,7 @@ class Main extends React.Component {
   handleRoute(pathname, state) {
     if(pathname === '/about' && !state.about) {
       api.getAbout().then(about => this.setState({ about }));
+      api.getInterests().then(interests => this.setState({ interests }));
     } else if(pathname === '/resume' && !state.jobs) {
       api.getJobs().then(jobs => this.setState({ jobs }));
       api.getEducation().then(education => this.setState({ education }));
@@ -38,7 +39,7 @@ class Main extends React.Component {
   }
 
   getStateSlice(pathname) {
-    if(pathname === '/about') return { about: this.state.about };
+    if(pathname === '/about') return { about: this.state.about, interests: this.state.interests };
     if(pathname === '/resume') return this.state; //TODO
     if(pathname === '/contact') return { contacts: this.state.contacts };
   }

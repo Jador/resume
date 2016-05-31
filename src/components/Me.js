@@ -3,7 +3,7 @@ import { h, hh } from 'react-hyperscript-helpers';
 
 import Paragrapher from './Paragrapher';
 
-import { Card, CardHeader, CardText, CardTitle } from 'material-ui/Card';
+import { Card, CardText, CardTitle } from 'material-ui/Card';
 
 export default hh(({ about }) =>
   h(Card, [
