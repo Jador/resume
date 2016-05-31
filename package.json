@@ -13,13 +13,15 @@
   "license": "ISC",
   "dependencies": {
     "babel-preset-stage-2": "^6.5.0",
+    "es6-promise": "^3.2.1",
     "material-ui": "^0.15.0",
     "moment": "^2.13.0",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
     "react-hyperscript-helpers": "^1.2.0",
     "react-router": "^2.4.1",
-    "react-tap-event-plugin": "^1.0.0"
+    "react-tap-event-plugin": "^1.0.0",
+    "whatwg-fetch": "^1.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.6",

@@ -1,3 +1,5 @@
+import 'whatwg-fetch';
+import 'es6-promise';
 import moment from 'moment';
 
 const URI = 'https://resume-66859.firebaseio.com/';
